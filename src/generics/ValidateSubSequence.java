@@ -19,7 +19,6 @@ public class ValidateSubSequence {
         return seqIndex == sequence.size();
 
     }
-
     public static void main(String[] args) {
 
         List<Integer> array = new ArrayList<>();
