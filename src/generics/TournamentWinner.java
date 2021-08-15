@@ -17,11 +17,9 @@ public class TournamentWinner {
             }
         }
         for (int a = 0; a < result.size(); a++) {
-            if (result.get(a) == 0) {
-                scoreTable.put(competitions.get(a).get(1), scoreTable.get(competitions.get(a).get(1)) + 3);
-            } else {
-                scoreTable.put(competitions.get(a).get(0), scoreTable.get(competitions.get(a).get(0)) + 3);
-            }
+            String homeTeam = competitions.get(a).get(0);
+            String awayTeam = competitions.get(a).get(1);
+            Integer newScores = (result.get(a) == 0) ? scoreTable.put(awayTeam, scoreTable.get(awayTeam) + 3) : scoreTable.put(homeTeam, scoreTable.get(homeTeam) + 3);
         }
         return maxUsingStreamAndLambda(scoreTable);
     }
