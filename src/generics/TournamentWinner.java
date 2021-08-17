@@ -30,7 +30,6 @@ public class TournamentWinner {
                 .max((Map.Entry<String, V> e1, Map.Entry<String, V> e2) -> e1.getValue()
                         .compareTo(e2.getValue())
                 );
-        System.out.println(maxEntry.get().getValue());
         return maxEntry.get().getKey();
     }
 
