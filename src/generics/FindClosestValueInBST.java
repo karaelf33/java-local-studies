@@ -1,8 +1,14 @@
 package generics;
+
+import java.util.ArrayList;
+import java.util.List;
+
 // Yusuf Beştaş
 public class FindClosestValueInBST {
 
     public static int findClosestValueInBst(BST tree, int target) {
+
+
         return findClosestValueInBst(tree, target, tree.value);
     }
 
@@ -18,7 +24,6 @@ public class FindClosestValueInBST {
             return closest;
         }
     }
-
 
     static class BST {
         public int value;
@@ -39,7 +44,7 @@ public class FindClosestValueInBST {
         tree.left.right = new BST(5);
         tree.right = new BST(15);
         tree.right.left = new BST(13);
-        tree.right.left.left=new BST(12);
+        tree.right.left.left = new BST(12);
         tree.right.left.right = new BST(14);
         tree.right.right = new BST(22);
         System.out.println(findClosestValueInBst(tree, 12));
