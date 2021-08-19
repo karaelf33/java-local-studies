@@ -8,12 +8,13 @@ public class TournamentWinner3 {
 
     public static String tournamentWinner(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> result) {
 
+
         HashMap<String, Integer> scores = new HashMap<>();
         String currentBestTeam = "";
         scores.put(currentBestTeam, 0);
         for (int i = 0; i < competitions.size(); i++) {
             ArrayList<String> competition = competitions.get(i);
-            String HOME_TEAM = competition.get(0);
+            String HOME_TEAM = competition.get(1);
             String AWAY_TEAM = competition.get(1);
             String WINNER_TEAM = (result.get(i) == 0) ? AWAY_TEAM : HOME_TEAM;
             updateScores(WINNER_TEAM, 3, scores);
@@ -21,7 +22,6 @@ public class TournamentWinner3 {
             if (scores.get(WINNER_TEAM) > scores.get(currentBestTeam)) {
                 currentBestTeam = WINNER_TEAM;
             }
-
         }
 
         return currentBestTeam;
