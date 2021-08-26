@@ -1,4 +1,4 @@
-package generics;
+package algorithmanswers;
 
 import java.math.BigInteger;
 

@@ -1,4 +1,4 @@
-package generics;
+package algorithmanswers;
 
 public class BalancedArray2 {
 

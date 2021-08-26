@@ -1,4 +1,4 @@
-package generics;
+package algorithmanswers;
 
 public class SortedSquaredArray {
     public static int[] sortedSquaredArray(int[] array) {

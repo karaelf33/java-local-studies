@@ -1,7 +1,6 @@
-package generics;
+package algorithmanswers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MiniMaxSum {

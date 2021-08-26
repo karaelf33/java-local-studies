@@ -1,39 +1,38 @@
-package generics;
+package algorithmanswers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TournamentWinner2 {
+public class TournamentWinner3 {
 
-    public static int HOME_TEAM_WON = 1;
 
     public static String tournamentWinner(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> result) {
+
+
+        HashMap<String, Integer> scores = new HashMap<>();
         String currentBestTeam = "";
-        HashMap<String, Integer> scores = new HashMap<String, Integer>();
         scores.put(currentBestTeam, 0);
+        for (int i = 0; i < competitions.size(); i++) {
+            ArrayList<String> competition = competitions.get(i);
+            String HOME_TEAM = competition.get(1);
+            String AWAY_TEAM = competition.get(1);
+            String WINNER_TEAM = (result.get(i) == 0) ? AWAY_TEAM : HOME_TEAM;
+            updateScores(WINNER_TEAM, 3, scores);
 
-        for (int idx = 0; idx < competitions.size(); idx++) {
-            ArrayList<String> competition = competitions.get(idx);
-            int result1 = result.get(idx);
-
-            String homeTeam = competition.get(0);
-            String awayTeam = competition.get(1);
-            String winningTeam = (result1 == HOME_TEAM_WON) ? homeTeam : awayTeam;
-            updateScores(winningTeam, 3, scores);
-            if (scores.get(winningTeam) > scores.get(currentBestTeam)) {
-                currentBestTeam = winningTeam;
+            if (scores.get(WINNER_TEAM) > scores.get(currentBestTeam)) {
+                currentBestTeam = WINNER_TEAM;
             }
-
         }
-        System.out.println(currentBestTeam);
+
         return currentBestTeam;
     }
 
-    public static void updateScores(String team, int points, HashMap<String, Integer> scores) {
+    public static void updateScores(String team, int point, HashMap<String, Integer> scores) {
         if (!scores.containsKey(team)) {
             scores.put(team, 0);
         }
-        scores.put(team, scores.get(team) + points);
+        scores.put(team, scores.get(team) + point);
+
     }
 
     public static void main(String[] args) {

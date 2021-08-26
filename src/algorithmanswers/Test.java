@@ -1,8 +1,7 @@
-package generics;
+package algorithmanswers;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.function.Supplier;
 
 public class Test {
 

@@ -1,8 +1,7 @@
-package generics;
+package algorithmanswers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class BalancedArray {
     public static int balancedSum(int[] arr) {

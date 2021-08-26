@@ -1,39 +1,38 @@
-package generics;
+package algorithmanswers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
-public class TournamentWinner3 {
+public class TournamentWinner {
 
 
     public static String tournamentWinner(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> result) {
+        Map<String, Integer> scoreTable = new HashMap<>();
 
-
-        HashMap<String, Integer> scores = new HashMap<>();
-        String currentBestTeam = "";
-        scores.put(currentBestTeam, 0);
-        for (int i = 0; i < competitions.size(); i++) {
-            ArrayList<String> competition = competitions.get(i);
-            String HOME_TEAM = competition.get(1);
-            String AWAY_TEAM = competition.get(1);
-            String WINNER_TEAM = (result.get(i) == 0) ? AWAY_TEAM : HOME_TEAM;
-            updateScores(WINNER_TEAM, 3, scores);
-
-            if (scores.get(WINNER_TEAM) > scores.get(currentBestTeam)) {
-                currentBestTeam = WINNER_TEAM;
+        for (ArrayList<String> competition : competitions) {
+            for (String s : competition) {
+                scoreTable.put(s, 0);
             }
         }
-
-        return currentBestTeam;
-    }
-
-    public static void updateScores(String team, int point, HashMap<String, Integer> scores) {
-        if (!scores.containsKey(team)) {
-            scores.put(team, 0);
+        for (int a = 0; a < result.size(); a++) {
+            String homeTeam = competitions.get(a).get(0);
+            String awayTeam = competitions.get(a).get(1);
+            Integer newScores = (result.get(a) == 0) ? scoreTable.put(awayTeam, scoreTable.get(awayTeam) + 3) : scoreTable.put(homeTeam, scoreTable.get(homeTeam) + 3);
         }
-        scores.put(team, scores.get(team) + point);
-
+        return maxUsingStreamAndLambda(scoreTable);
     }
+
+    public static <String, V extends Comparable<V>> String maxUsingStreamAndLambda(Map<String, V> map) {
+        Optional<Map.Entry<String, V>> maxEntry = map.entrySet()
+                .stream()
+                .max((Map.Entry<String, V> e1, Map.Entry<String, V> e2) -> e1.getValue()
+                        .compareTo(e2.getValue())
+                );
+        return maxEntry.get().getKey();
+    }
+
 
     public static void main(String[] args) {
         int n = 3;
@@ -63,5 +62,6 @@ public class TournamentWinner3 {
         }
 
         tournamentWinner(arrayLists, aResult);
+
     }
 }

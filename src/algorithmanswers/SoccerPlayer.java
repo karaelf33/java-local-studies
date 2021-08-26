@@ -1,4 +1,4 @@
-package generics;
+package algorithmanswers;
 
 public class SoccerPlayer  extends Player{
         public SoccerPlayer(String name) {
