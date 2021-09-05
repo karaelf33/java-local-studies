@@ -105,6 +105,5 @@ public class queenAttack {
         System.out.println("result=> " + queensAttack(5, 9, 4, 3, obstacles));
 
 
-
     }
 }
